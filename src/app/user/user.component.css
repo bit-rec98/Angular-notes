@@ -1,0 +1,16 @@
+/*
+Al aplicar estilos sobre section (dependiendo la modificación) ciertas declaraciones se aplican sobre los elementos hijos del componente
+Ejemplo: font-size
+*/
+section {
+  max-width: 500px;
+  margin: 0 auto;
+  padding-top: 32px;
+  font-size: 24px;
+}
+
+img{
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+}

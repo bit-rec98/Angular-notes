@@ -1,0 +1,36 @@
+<!-- Directivas condicionales -->
+
+<!-- Con @if se puede hacer renderizado condicional para determinados componentes -->
+<section>
+  @if(isLoggedIn){
+    <p>Bienvenido, {{username}}</p>
+    <img
+    (click)="greet()"
+    src="https://github.com/bit-rec98.png"
+    alt="photo"
+    >
+  } @else {
+    <p>¡Iniciá sesión!</p>
+    <button
+      (click)="isLoggedIn = true"
+      type="button"
+    >
+      Login
+    </button>
+  }
+
+  <app-games
+    (addFavEvent)="getFavGame($event)"
+    username="{{ username }}"
+  />
+
+  @if(favGame != ''){
+    <p>Tus juego favoritos es {{favGame}}</p>
+  }
+</section>
+
+<!-- Los eventos de componentes se agregan a estos a través de los paréntesis y con comillas, la lógica de estos eventos se debe realizar en el archivo .ts del componente al que se quiere agregar un evento. Ejemplo en línea 7  -->
+
+<!-- Se pueden cambiar estados en angular al cambiar valores mediante los eventos como sucede en la línea 14, al hacer click el valor de isLoggedIn cambia a TRUE después de estar en false como valor default -->
+
+<!-- El componente hijo puede suscribirse a un evento personalizado (addFavEvent) para realizar diversas acciones, en este caso se ejecuta getFavGame($event) para ejecutar la función que se encarga de guardar el nombre del juego que está siendo clickeado en la lista - getFavGame($event) recibe como parámetro mediante el signo $ el tipo de evento (información que se espera recibir) que se está enviando -->
